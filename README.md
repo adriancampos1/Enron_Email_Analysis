@@ -70,6 +70,116 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
+## Results
+
+Found unique results...
+
+Cluster d: 0
+  defense
+  option
+  station
+  stake
+  including
+  evening
+  day
+  gov
+  businesses
+  known
+  maintenance
+  investigation
+  involved
+  commodity
+  lost
+  assignment
+  tools
+  hub
+  holding
+  knowledge
+Cluster d: 1
+  meter
+  bpa
+  impacted
+  quantity
+  heat
+  software
+  assistance
+  mkt_type
+  ancillary
+  appear
+  option
+  members
+  shapiro
+  kenneth
+  industry
+  sense
+  holding
+  read
+  judy
+  dear
+Cluster d: 2
+  did
+  comments
+  delainey
+  act
+  gray
+  answer
+  meet
+  evidence
+  site
+  enronxgate
+  communication
+  mid
+  normal
+  box
+  fred
+  harris
+  relationship
+  jeff
+  legislature
+  programs
+Cluster d: 3
+  computer
+  person
+  light
+  break
+  application
+  london
+  applicable
+  january
+  determine
+  companies
+  option
+  000
+  notified
+  1st
+  annual
+  communications
+  august
+  stated
+  confirmed
+  regards
+Cluster d: 4
+  option
+  defense
+  season
+  businesses
+  attend
+  debbie
+  analysis
+  commodities
+  evening
+  linda
+  known
+  understanding
+  page
+  pager
+  business
+  assignment
+  sellers
+  team
+  efforts
+  noon
+
 ## Authors
 
 * **Adrian campos** - *Initial work* - [github](https://github.com/adriancampos1)
