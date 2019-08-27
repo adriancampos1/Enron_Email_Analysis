@@ -1,66 +1,84 @@
 # Enron Email Analysis
 
-One Paragraph of project description goes here
+I have 1.7 MM emails to read through and need a fast an efficient way of cycling through them. Reading through them will take me over 393 - 24 hour days to read through. I don't have time to be reading office gossip as well, give me the nitty gritty. How can I be more efficient at this.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Included in this repository is Jupyter Notebook with the code to run through this project. You will need the data set from Bryan Ray. This data set may be found at the link below:
+
+[Enron Data set](https://data.world/brianray/enron-email-dataset) - Complete set of email corpus publicly available.
+
+[Dataset Utilized](https://www.kaggle.com/adriancampos/enron-email-20-percent) - 20% of actual corpus used in this project.
+
+### Data Description and Dictionary
+
+[Enron Dataset Dictionary](data/datadictionary.txt) - Data dictionary for complete Enron Data Set The only data utilized for this project was the 'Date' and 'content' columns.
+
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+The following libraries and imports will be needed to fully run this notebook.
 
 ```
-Give examples
+from sklearn.feature_extraction.text import CountVectorizer, ENGLISH_STOP_WORDS, TfidfVectorizer
+from sklearn.feature_extraction import stop_words
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns; sns.set()  # for plot styling
+
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn import metrics
+from joblib import dump, load
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+After cloning and downloading the repository simply run the enron_analysis_all_countvectorizer.ipynb notebook. You will need to change your downloaded dataset location
 
 ```
-Give the example
+df = pd.read_csv('/Users/adriancampos/Downloads/enron_emails_all.csv')
 ```
 
-And repeat
+I decided to leave my dataset in my downloads folder, as it's over 2 gigs in size and my system is set up to archive everything in the cloud - outside the downloads folder. FYI
+
+You will notice that I only used 20% of my emails in line 3.
 
 ```
-until finished
+df = df.sample(frac=.2)
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+This was intentional, as my kernel kept crashing with anything more than this amount.
 
-## Running the tests
+However, you may opt to follow the same path and only utilize the same dataset I used. If so, the Jupyter notebook utlized is available here:
 
-Explain how to run the automated tests for this system
+* [20% Jupyter Notebook](Enron_Email_Analysis_K-means_clustering.ipynb)
 
-### Break down into end to end tests
+To utilize whole corpus, please use this notebook:
 
-Explain what these tests test and why
+* [100% Jupyter Notebook](enron_email_analysis-all-countvectorize.ipynb)
 
-```
-Give an example
-```
+You should see the following dataset after dropping all but Date & content columns in line 11.
 
-### And coding style tests
+<img src="images/initial_output.png" style="margin: 15px; height: 500px">
 
-Explain what these tests test and why
 
-```
-Give an example
-```
+## Findings
 
-## Deployment
+A more robust, but not exhaustive description of findings may be found at the link below:
 
-Add additional notes about how to deploy this on a live system
+
+* [Portofolio Project Link](https://adriancampos.me/project/enron-email-unsupervised-analysis/)
+
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Python ](https://www.python.org/) - and associated libraries
+* [Anaconda](https://anaconda.org/) - Packages, notebooks, & projects
+* [Tableau](tableau.com) - Online presentation & visualizations
 
 ## Contributing
 
@@ -68,121 +86,18 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+We use [Github](https://github.com) for versioning/version control.
 
-## Results
 
-Found unique results...
 
-Cluster d: 0
-  defense
-  option
-  station
-  stake
-  including
-  evening
-  day
-  gov
-  businesses
-  known
-  maintenance
-  investigation
-  involved
-  commodity
-  lost
-  assignment
-  tools
-  hub
-  holding
-  knowledge
-Cluster d: 1
-  meter
-  bpa
-  impacted
-  quantity
-  heat
-  software
-  assistance
-  mkt_type
-  ancillary
-  appear
-  option
-  members
-  shapiro
-  kenneth
-  industry
-  sense
-  holding
-  read
-  judy
-  dear
-Cluster d: 2
-  did
-  comments
-  delainey
-  act
-  gray
-  answer
-  meet
-  evidence
-  site
-  enronxgate
-  communication
-  mid
-  normal
-  box
-  fred
-  harris
-  relationship
-  jeff
-  legislature
-  programs
-Cluster d: 3
-  computer
-  person
-  light
-  break
-  application
-  london
-  applicable
-  january
-  determine
-  companies
-  option
-  000
-  notified
-  1st
-  annual
-  communications
-  august
-  stated
-  confirmed
-  regards
-Cluster d: 4
-  option
-  defense
-  season
-  businesses
-  attend
-  debbie
-  analysis
-  commodities
-  evening
-  linda
-  known
-  understanding
-  page
-  pager
-  business
-  assignment
-  sellers
-  team
-  efforts
-  noon
+## Author
 
-## Authors
+#### Adrian Campos
 
-* **Adrian campos** - *Initial work* - [github](https://github.com/adriancampos1)
+* [Portfolio](https://adriancampos.me)
+* [github](https://github.com/adriancampos1)
+* [Linkedin](https://linkedin.com/in/adriancampos1)
+
 
 ## License
 
@@ -190,6 +105,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* **Bryan Ray** [Linkedin](https://www.linkedin.com/in/brianray/) - Provided the clean and sorted dataset for this project.
+
+* **CMU Students** [website](https://www.cs.cmu.edu/~./enron/) - Categorization provided by CMS graduate students.
