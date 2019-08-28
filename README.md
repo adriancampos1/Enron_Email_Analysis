@@ -71,7 +71,7 @@ You should see the following dataset after dropping all but Date & content colum
 A more robust, but not exhaustive description of findings may be found at the link below:
 
 
-* [Portofolio Project Link](https://adriancampos.me/project/enron-email-unsupervised-analysis/)
+* [Portofolio Project Link](https://adriancampos.me/project/enron-email-analysis/)
 
 
 ## Built With
